@@ -1,0 +1,19 @@
+{
+  "name": "bot-x",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "fs": "^0.0.1-security",
+    "puppeteer": "^24.8.2",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-anonymize-ua": "^2.4.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "random-useragent": "^0.5.0"
+  }
+}

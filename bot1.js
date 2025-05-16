@@ -19,8 +19,8 @@ const messages = [
     "Saw this and thought of this feed: https://sex-positions.site",
     "Try this before tonight: https://sex-positions.site",
     "Don’t miss this one: https://sex-positions.site"
-  ];
-
+];
+    bot.replyBot('./loginCookies/1.json', messages,"https://x.com/sophieraiin")
 
 let bot1 = setInterval(()=>{
     bot.replyBot('./loginCookies/1.json', messages,"https://x.com/sophieraiin")

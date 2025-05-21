@@ -11,17 +11,17 @@ async function replyBot(cookiesFilePath, messages,accountLink) {
 
     async function wait(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
-      }
-      
-      async function humanScroll(page) {
+    }
+    
+    async function humanScroll(page) {
         for (let i = 0; i < 3; i++) {
-          await page.mouse.wheel({ deltaY: 300 });
-          await wait(1000 + Math.random() * 1000);
+            await page.mouse.wheel({ deltaY: 300 });
+            await wait(1000 + Math.random() * 1000);
         }
-      }
+    }
 
 
-    const browser = await puppeteer.launch({headless: true, args: ['--no-sandbox','--disable-setuid-sandbox']});
+    const browser = await puppeteer.launch({headless:false, args: ['--no-sandbox','--disable-setuid-sandbox']});
     const page = await browser.newPage();
   
     // Set realistic user agent and viewport
@@ -30,37 +30,37 @@ async function replyBot(cookiesFilePath, messages,accountLink) {
   
     // Load cookies if available
     if (fs.existsSync(cookiesFilePath)) {
-      const cookies = JSON.parse(fs.readFileSync(cookiesFilePath));
-      await page.setCookie(...cookies);
+        const cookies = JSON.parse(fs.readFileSync(cookiesFilePath));
+        await page.setCookie(...cookies);
     }
-  
+
     await page.goto(accountLink, { waitUntil: 'networkidle2' });
     await wait(3000);
     await humanScroll(page);
-  
+
     // Get the first few article tags and work with the second one directly
     const tweetLinks = await page.$$eval('article', (articles) => {
-      const validTweets = articles
-        .map(article => {
-          const linkEl = article.querySelector('a[href*="/status/"]');
-          return linkEl ? linkEl.href : null;
-        })
-        .filter(Boolean);
-      return validTweets;
+        const validTweets = articles
+            .map(article => {
+            const linkEl = article.querySelector('a[href*="/status/"]');
+            return linkEl ? linkEl.href : null;
+            })
+            .filter(Boolean);
+        return validTweets;
     });
-  
+
     if (!tweetLinks[1]) {
-      console.log('Second tweet not found.');
-      await browser.close();
-      return;
+        console.log('Second tweet not found.');
+        await browser.close();
+        return;
     }
-  
+
     const tweetURL = tweetLinks[1];
     console.log('Replying to:', tweetURL);
     await page.goto(tweetURL, { waitUntil: 'networkidle2' });
     await wait(3000);
     await humanScroll(page);
-  
+
     // Focus reply box
     await page.keyboard.press('r');
     await wait(1000);
@@ -68,19 +68,21 @@ async function replyBot(cookiesFilePath, messages,accountLink) {
     // Type message
     const message = messages[Math.floor(Math.random() * messages.length)];
     for (let char of message) {
-      await page.keyboard.type(char);
-      await wait(30 + Math.random() * 70);
+        await page.keyboard.type(char);
+        await wait(30 + Math.random() * 70);
     }
-  
+
     // Submit the reply
     await page.keyboard.down('Control');
     await page.keyboard.press('Enter');
     await page.keyboard.up('Control');
-  
+
     console.log('Replied with:', message);
     await wait(5000);
     await browser.close();
-  }
+    await wait((Math.random*10+20)*100);
+    console.log('successfull');
+}
 
 module.exports = {
     replyBot

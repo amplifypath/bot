@@ -77,11 +77,10 @@ async function replyBot(cookiesFilePath, messages,accountLink) {
     await page.keyboard.press('Enter');
     await page.keyboard.up('Control');
 
-    console.log('Replied with:', message);
+    console.log('Replied with:', message , new Date());
     await wait(5000);
     await browser.close();
     await wait((Math.random*10+20)*100);
-    console.log('successfull');
 }
 
 module.exports = {

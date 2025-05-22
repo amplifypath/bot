@@ -23,6 +23,7 @@ let main = async function(){
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/yumietooXO')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/sarasfamurri')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/melissastarova_')
+    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/camilla_ara1')
 }
 //main()
 setInterval(()=>{

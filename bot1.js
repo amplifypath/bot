@@ -24,6 +24,14 @@ let main = async function(){
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/sarasfamurri')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/melissastarova_')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/camilla_ara1')
+    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/kaitviolet_01')
+    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/virtualtorii7')
+    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/kelseyrayexox')
+    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/iamlinneaxoxo')
+    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/MoreLeahRay')
+    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/emelizabethhh')
+    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/_genbenz')
+    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/summerxiris')
 }
 //main()
 setInterval(()=>{

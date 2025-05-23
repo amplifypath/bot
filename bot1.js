@@ -19,24 +19,34 @@ const messages = [
 ];
 
 let main = async function(){
+    console.log(1)
     await bot.replyBot('./loginCookies/1.json', messages,"https://x.com/sophieraiin")
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/yumietooXO')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/sarasfamurri')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/melissastarova_')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/camilla_ara1')
-    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/kaitviolet_01')
+//    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/kaitviolet_01')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/virtualtorii7')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/kelseyrayexox')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/iamlinneaxoxo')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/MoreLeahRay')
-    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/emelizabethhh')
+//    await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/emelizabethhh')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/_genbenz')
     await bot.replyBot('./loginCookies/1.json', messages,'https://x.com/summerxiris')
 }
 //main()
-setInterval(()=>{
-    main()
-},10*60*60*24*5)
+async function loopMain() {
+    while (true) {
+        try {
+            await main(); // Wait for all puppeteer tasks to finish
+        } catch (err) {
+            console.error('Main failed:', err);
+        }
+        await new Promise(res => setTimeout(res, 60*60*24*400)); 
+    }
+}
+
+loopMain();
 
 /*
 let bot1 = setInterval(()=>{

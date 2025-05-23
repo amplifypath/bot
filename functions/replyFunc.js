@@ -8,7 +8,7 @@ puppeteer.use(StealthPlugin());
 
 
 async function replyBot(cookiesFilePath, messages,accountLink) {
-
+    console.log(2)
     async function wait(ms) {
         return new Promise(resolve => setTimeout(resolve, ms));
     }

@@ -18,7 +18,7 @@ const messages = [
         "Don’t miss this one: https://sex-positions.site"
 ];
 
-let main = async function(num=1){
+let main = async function(num="1"){
     console.log(1)
     await bot.replyBot(`./loginCookies/${num}.json`, messages,"https://x.com/sophieraiin",'sophierain')
     await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/yumietooXO','yumietooXO')

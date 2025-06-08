@@ -20,19 +20,18 @@ const messages = [
 
 let main = async function(num=1){
     console.log(1)
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,"https://x.com/sophieraiin")
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/yumietooXO')
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/sarasfamurri')
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/melissastarova_')
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/camilla_ara1')
-//    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/kaitviolet_01')
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/virtualtorii7')
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/kelseyrayexox')
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/iamlinneaxoxo')
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/MoreLeahRay')
-//    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/emelizabethhh')
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/_genbenz')
-    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/summerxiris')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,"https://x.com/sophieraiin",'sophierain')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/yumietooXO','yumietooXO')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/sarasfamurri','sarasfamurri')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/melissastarova_','melissastarova_')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/camilla_ara1','camilla_ara1')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/virtualtorii7','virtualtorii7')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/kelseyrayexox','kelseyrayexox')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/iamlinneaxoxo','iamlinneaxoxo')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/MoreLeahRay','MoreLeahRay')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/_genbenz','_genbenz')
+    await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/summerxiris','summerxiris')
+    console.log(3)
 }
 
 async function loopMain() {

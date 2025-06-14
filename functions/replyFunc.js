@@ -29,7 +29,7 @@ async function replyBot(cookiesFilePath, messages, accountLink,append) {
 
     // 2. Launch Chrome using that temp folder. Every run is “fresh.”
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         args: [
             `--user-data-dir=${tmpDir}`,     // <— each run gets its own temp profile
             '--no-sandbox',

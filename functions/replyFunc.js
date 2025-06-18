@@ -25,7 +25,7 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
     let browser, page
     try{
         browser = await puppeteer.launch({
-            headless:false,
+            headless:true,
         })
         page = await browser.newPage()
         await page.setUserAgent('Mozilla/5.0 (Windows NT 10.0; Win64; x64) ' + 'AppleWebKit/537.36 (KHTML, like Gecko) ' + 'Chrome/119 Safari/537.36')
@@ -51,6 +51,7 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
     }catch(err){
         await browser.close()
         return console.log(err,'3 failed: cokies or link problem')
+        wait(3000)
     }
 
     try{
@@ -60,7 +61,8 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
         if(article){
             await article.evaluate(art => art.scrollIntoView({ behavior: 'smooth', block: 'center' }));
             let reply = await article.$('button[data-testid="reply"]')
-            reply.click()
+            await reply.click()
+            wait(3000)
             console.log(4 , 'reply opend')
         }else{
             throw new Error('second tweet not found')
@@ -68,6 +70,7 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
     }catch(err){
         await browser.close()
         return console.log(err, '4 failed: not possible to open tweet')
+        wait(3000)
     }
 
     try{
@@ -80,18 +83,22 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
         await page.keyboard.down('Control');
         await page.keyboard.press('Enter');
         await page.keyboard.up('Control');
+        wait(3000)
         console.log(5,'replied')
     }catch(err){
         await browser.close()
         return console.log(err, '4 failed: message form input error')
+        wait(3000)
     }
 
     try{
         await browser.close()
         console.log(6,`successfuly replied to ${modelName}`)
+        wait(3000)
     }catch(err){
         await browser.process().kill()
         return console.log(err , '6 failed: browser closed forcefully')
+        wait(3000)
     }
 
 

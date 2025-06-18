@@ -9,7 +9,8 @@ puppeteer.use(StealthPlugin());
 
 
 async function replyBot(cookiesFilePath, messages, accountLink, modelName){
-    console.log(1,`on ${Date.now()} trying to reply to ${modelName}`)
+    let now = new Date
+    console.log(1,`on ${now.toString()} trying to reply to ${modelName}`)
 
     async function humanScroll(page) {
 

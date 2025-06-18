@@ -4,7 +4,7 @@ const puppeteer = require('puppeteer-extra');
 const StealthPlugin = require('puppeteer-extra-plugin-stealth');
 puppeteer.use(StealthPlugin());
 
-const bot = require('./functions/reply.js')
+const bot = require('./functions/replyFunc.js')
 
 const messages = [
         "Honestly? Better than most paid stuff: https://sex-positions.site",
@@ -19,7 +19,6 @@ const messages = [
 ];
 
 let main = async function(num="5"){
-    console.log(1)
     await bot.replyBot(`./loginCookies/${num}.json`, messages,"https://x.com/sophieraiin",'sophierain')
     await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/yumietooXO','yumietooXO')
     await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/sarasfamurri','sarasfamurri')
@@ -31,7 +30,6 @@ let main = async function(num="5"){
     await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/MoreLeahRay','MoreLeahRay')
     await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/_genbenz','_genbenz')
     await bot.replyBot(`./loginCookies/${num}.json`, messages,'https://x.com/summerxiris','summerxiris')
-        console.log(3)
 }
 
 async function loopMain() {
@@ -46,7 +44,7 @@ async function loopMain() {
 }
 
 //loopMain();
-let num = 1
+let num = 4
 bot.replyBot(`./loginCookies/${num}.json`, messages,"https://x.com/sophieraiin",'sophierain')
 
 

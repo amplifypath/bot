@@ -32,8 +32,9 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
         await page.setViewport({ width: 1280, height: 800 })
         console.log(2,'browser opend')
     }catch(err){
-        await browser.close()
-        return console.log(err,'2 failed: load browser')
+        console.log(err,'2 failed: load browser')
+        wait(3000)
+        return await browser.close()
     }
     
     try{
@@ -49,9 +50,9 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
         humanScroll(page)
         console.log(3,'account opend')
     }catch(err){
-        await browser.close()
-        return console.log(err,'3 failed: cokies or link problem')
+        console.log(err,'3 failed: cokies or link problem')
         wait(3000)
+        return await browser.close()
     }
 
     try{
@@ -68,9 +69,9 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
             throw new Error('second tweet not found')
         }
     }catch(err){
-        await browser.close()
-        return console.log(err, '4 failed: not possible to open tweet')
+        console.log(err, '4 failed: not possible to open tweet')
         wait(3000)
+        return await browser.close()
     }
 
     try{
@@ -86,9 +87,9 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
         wait(3000)
         console.log(5,'replied')
     }catch(err){
-        await browser.close()
-        return console.log(err, '4 failed: message form input error')
+        console.log(err, '4 failed: message form input error')
         wait(3000)
+        return await browser.close()
     }
 
     try{
@@ -96,9 +97,9 @@ async function replyBot(cookiesFilePath, messages, accountLink, modelName){
         console.log(6,`successfuly replied to ${modelName}`)
         wait(3000)
     }catch(err){
-        await browser.process().kill()
-        return console.log(err , '6 failed: browser closed forcefully')
+        console.log(err , '6 failed: browser closed forcefully')
         wait(3000)
+        return await browser.process().kill()
     }
 
 
